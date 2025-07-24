@@ -1,7 +1,16 @@
 import React from "react";
-import{ useState }  from "react";
+import { useState } from "react";
+import styles from "./PorkerCard.module.css"; // Assuming you have a CSS module for styles
 
-const PorkerCard = ({ name, image, onClick }) => {
+function PorkerCard({
+  name,
+  image,
+  specialty,
+  weight,
+  highestMedal,
+  greased,
+  onTileClick,
+}) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const handleMoreInfoClick = () => {
@@ -9,41 +18,24 @@ const PorkerCard = ({ name, image, onClick }) => {
   };
 
   return (
-    <div aria-label="hog card" className="porker-card" onClick={onClick}>
-      <img src={image} alt={name} />
-      <h3>
-        <button onClick={handleMoreInfoClick}>
-          {showMoreInfo ? "Hide info on" : "More Info on"} {name}
-        </button>
+    <div
+      aria-label="hog card"
+      className={`ui card ${styles.porkerCard}`}
+      onClick={handleMoreInfoClick}
+    >
+      <img src={image} alt={`Photo of ${name}`} className={styles.img} />
+      <h3>{name}</h3>
       {showMoreInfo && (
-        <div className="more-info">
+        <div className={styles.moreInfo}>
           <p>Specialty: {specialty} </p>
-          <p>Weight: </p>
-          <p>Highest Medal Achieved: </p>
-          <p>Greased: {name ? "Yes" : "No"}</p>
+          <p>Weight: {weight} </p>
+          <p>Highest Medal Achieved: {highestMedal} </p>
+          <p>Greased: {greased ? "Yes" : "No"}</p>
         </div>
       )}
-      </h3>
-
-      <style jsx>{`
-        .porker-card {
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 16px;
-          text-align: center;
-          cursor: pointer;
-          transition: transform 0.2s;
-        }
-        .porker-card:hover {
-          transform: scale(1.05);
-        }
-        img {
-          height: auto;
-          border-radius: 50%;
-        }
-      `}</style>
+      
     </div>
   );
-};
+}
 
 export default PorkerCard;

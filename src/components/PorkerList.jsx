@@ -12,7 +12,10 @@ function PorkerList({ porkers, onPorkerClick }) {
           key={porker.name}
           name={porker.name}
           image={porker.image}
-          onClick={() => onPorkerClick(porker)}
+          specialty={porker.specialty}
+          weight={porker.weight}
+          highestMedal={porker["highest medal achieved"]}
+          greased={porker.greased}
 
         />
       ))}

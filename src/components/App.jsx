@@ -9,7 +9,7 @@ function App() {
 	return (
 		<div className="App">
 			<Nav />
-			<PorkerList porkers={hogs} onPorkerClick={(porker) => <div>{porker.name}</div>} />
+			<PorkerList porkers={hogs} />
 
 		</div>
 	);
