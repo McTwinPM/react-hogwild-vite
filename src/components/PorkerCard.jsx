@@ -27,13 +27,12 @@ function PorkerCard({
       <h3>{name}</h3>
       {showMoreInfo && (
         <div className={styles.moreInfo}>
-          <p>Specialty: {specialty} </p>
-          <p>Weight: {weight} </p>
-          <p>Highest Medal Achieved: {highestMedal} </p>
-          <p>Greased: {greased ? "Yes" : "No"}</p>
+          <p>Specialty: {specialty}</p>
+          <p>{weight}</p>
+          <p>{highestMedal}</p>
+          <p>{greased ? "Greased" : "Nongreased"}</p>
         </div>
       )}
-      
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import PorkerCard from "./PorkerCard";
+import Filter from "./Filter";
 
 function PorkerList({ porkers, onPorkerClick }) {
   if (!porkers || porkers.length === 0) {
