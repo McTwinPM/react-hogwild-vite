@@ -10,11 +10,17 @@ function PorkerCard({
   highestMedal,
   greased,
   onTileClick,
+  onHide,
 }) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const handleMoreInfoClick = () => {
     setShowMoreInfo(!showMoreInfo);
+  };
+
+  const handleHideClick = (e) => {
+    e.stopPropagation(); 
+    onHide(name);
   };
 
   return (
@@ -25,6 +31,9 @@ function PorkerCard({
     >
       <img src={image} alt={`Photo of ${name}`} className={styles.img} />
       <h3>{name}</h3>
+      <button onClick={handleHideClick} className={styles.hideButton}>
+        Hide Me
+      </button>
       {showMoreInfo && (
         <div className={styles.moreInfo}>
           <p>Specialty: {specialty}</p>
