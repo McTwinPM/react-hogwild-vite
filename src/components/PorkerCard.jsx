@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from "./PorkerCard.module.css"; // Assuming you have a CSS module for styles
+import styles from "./PorkerCard.module.css";
 
 function PorkerCard({
   name,
